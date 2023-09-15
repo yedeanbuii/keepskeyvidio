@@ -1,0 +1,270 @@
+bot = getBot()
+world = bot:getWorld()
+inventory = bot:getInventory()
+
+---- area EDIT -----
+
+BlockID = 4584
+
+FarmWorlds = {"guntum392","JKOBNAB7XC","MQKSRPQHB916","WNOVJTHTKIR","BCVVHJAG",}
+FarmWorldID = "7019" --DOOR ID
+
+StorageWorld = "YEDE4" --Seed and Block Drop World Name
+StorageWorldSeedID = "7019" --Seed Drop DOOR ID
+StorageWorldBlockID = "7019" --Block Drop DOOR ID
+
+PackDropWorld = "GONGMANG" --Pack Drop World
+PackDropWorldID = "5019" --DOOR ID
+
+WebhookUrl = "" --You can research on youtube
+YourDiscordid = ""
+
+delayHarvest = 150
+
+packname = "world_lock" 
+pricepack = 2000
+PackitemID = 242
+PackDropCount = 2 --when drop pack
+
+---- area EDIT -----
+
+---------------
+StorageWorld = string.upper(StorageWorld)
+StorageWorldSeedID = string.upper(StorageWorldSeedID)
+StorageWorldBlockID = string.upper(StorageWorldBlockID)
+PackDropWorld = string.upper(PackDropWorld)
+PackDropWorldID = string.upper(PackDropWorldID)
+FarmWorldID = string.upper(FarmWorldID)
+
+function GonWebhook(KeritingGT)
+    wh = Webhook.new(WebhookUrl)
+    wh.username = "KeritingGT"
+    wh.avatar_url = "https://cdn.discordapp.com/avatars/208654299738144768/bb27c340964dcd6a75ff1883d1341a6e.png?size=1024"
+    wh.embed1.use = true
+    wh.embed1.title = "Free SC Dont Reseller "
+    wh.embed1.description = KeritingGT
+    wh:send()
+end
+
+startT = os.time()
+function SecondTT(seconds)
+  local seconds = tonumber(seconds)
+  if seconds <= 0 then
+    return "00:00:00";
+  else
+    hours = string.format("%02.f", math.floor(seconds/3600));
+    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
+    secs = string.format("%02.f", math.floor(seconds - hours*3600 - mins *60));
+    return hours..":"..mins..":"..secs
+  end
+end
+
+function join(a,b) 
+    sleep(3000)
+    bot:warp(a,b)
+    sleep(3000)
+    AnlikYer()
+    Dunyadami = tostring(world.name)
+    if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
+        if world:getTile(Botx,Boty).fg == 6 then
+            join(a,b)
+        end
+    end
+end
+
+function AnlikYer()
+    Dunyadami = tostring(world.name)
+    if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
+        localbot = world:getLocal()
+        if localbot then
+            Botx = math.floor(localbot.posx / 32) 
+            Boty = math.floor(localbot.posy / 32)
+        end
+    end
+end
+
+function harvest(list) 
+    bot.auto_collect = true
+    for _, tile in pairs(world:getTiles()) do
+        if bot.status == 1 then
+            if tile.fg == BlockID+1 and tile:canHarvest() then
+                Reconnect(list)
+                bot:findPath(tile.x,tile.y)
+                if world:getTile(tile.x,tile.y).fg == BlockID+1 then
+                    bot:hit(tile.x,tile.y)
+                    sleep(delayHarvest) 
+                end
+                if world:getTile(tile.x,tile.y).fg == BlockID+1 then
+                    bot:hit(tile.x,tile.y)
+                    sleep(delayHarvest) 
+                end
+            end
+        else
+            Reconnect(list)
+        end
+        if bot.status == 1 then
+            if tile.bg == BlockID+1 and tile:canHarvest() then
+                Reconnect(list)
+                bot:findPath(tile.x,tile.y)
+                if world:getTile(tile.x,tile.y).bg == BlockID+1 then
+                    bot:hit(tile.x,tile.y)
+                    sleep(delayHarvest) 
+                end
+                if world:getTile(tile.x,tile.y).bg == BlockID+1 then
+                    bot:hit(tile.x,tile.y)
+                    sleep(delayHarvest) 
+                end
+            end
+        else
+            Reconnect(list)
+        end
+        if inventory:getItemCount(BlockID) == 200 then
+            break
+        end
+    end
+end
+
+function floats(idz)
+    float = 0
+    for i, obj in pairs(world:getObjects()) do
+        if obj.id == idz then 
+            float = float + obj.count
+        end
+    end
+    return {ucanlar = float}
+end
+
+function Dropf(list)
+    bot.auto_collect = false
+    if inventory:getItemCount(BlockID) > 0 then
+        ReconnectPackStrg(list)
+        join(StorageWorld,StorageWorldBlockID)
+        while (inventory:getItemCount(BlockID) > 0) do
+            ReconnectPackStrg(list)
+            sleep(1000)
+            bot:drop(BlockID, inventory:getItemCount(BlockID))
+            sleep(500)
+            bot:moveRight()
+        end
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
+        "\n <a:World:997157064008810620> Current World : "..world.name..
+        "\n <a:online:1007062631787544666> Status : "..bot.status..
+        "\n <:pepper_tree_seed:1012630107715797073> Dropped Seed : "..floats(BlockID+1).ucanlar..
+        "\n <:pepper_tree_seed:1012630107715797073> Dropped Block : "..floats(BlockID).ucanlar)
+    end
+    if inventory:getItemCount(BlockID+1) > 50 then
+        ReconnectPackStrg(list)
+        join(StorageWorld,StorageWorldSeedID)
+        while (inventory:getItemCount(BlockID+1) > 0) do
+            ReconnectPackStrg(list)
+            sleep(500)
+            bot:drop(BlockID+1,inventory:getItemCount(BlockID+1))
+            sleep(500)
+            bot:moveRight()
+        end  
+    end
+    while bot.gem_count > pricepack do
+        Reconnect(list)
+        bot:sendPacket(2, "action|buy\nitem|"..packname)
+        sleep(3000) -- you can change delay
+    end
+    if inventory:getItemCount(PackitemID) > PackDropCount then
+        ReconnectPack(list)
+        join(PackDropWorld,PackDropWorldID)
+        while inventory:getItemCount(PackitemID) > PackDropCount do
+            ReconnectPack(list)
+            sleep(500)
+            bot:drop(PackitemID,inventory:getItemCount(PackitemID))
+            sleep(500)
+            bot:moveLeft()
+        end
+        GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name..
+        "\n <a:World:997157064008810620> Current World : "..world.name..
+        "\n <a:online:1007062631787544666> Status : "..bot.status..
+        "\n <:gems:994218103032520724> Dropped Pack : "..floats(PackitemID).ucanlar)
+    end
+    join(list,FarmWorldID)
+end
+
+function scanTree(id)
+    countReady = 0
+    countUnready = 0
+   	for _, tile in pairs(world:getTiles()) do 
+        if tile.fg == id and tile:canHarvest() then
+            countReady = countReady + 1
+		end
+    end 
+    return { Ready = countReady, Unready = countUnready }
+end
+
+function ReconnectPackStrg(list)
+    if bot.status ~= 1 then
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Offline Trying To Reconnect.... \n<:red_circle:987661002868936774> | Status : Offline ")
+        while bot.status ~= 1 do
+            bot:connect()
+            sleep(10000)
+        end
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Back Online\n<a:online:1007062631787544666> | Status : Online\n<a:World:997157064008810620>")
+        join(StorageWorld,StorageWorldSeedID)
+    end
+    if world.name ~= StorageWorld then
+        join(StorageWorld,StorageWorldSeedID)
+    end
+end
+
+function ReconnectPack(list)
+    if bot.status ~= 1 then
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Offline Trying To Reconnect.... \n<:red_circle:987661002868936774> | Status : Offline ")
+        while bot.status ~= 1 do
+            bot:connect()
+            sleep(10000)
+        end
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Back Online\n<a:online:1007062631787544666> | Status : Online\n<a:World:997157064008810620>")
+        join(PackDropWorld,PackDropWorldID)
+    end
+    if world.name ~= PackDropWorld then
+        join(PackDropWorld,PackDropWorldID)
+    end
+end
+
+function Reconnect(list)
+    if bot.status ~= 1 then
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Offline Trying To Reconnect.... \n<:red_circle:987661002868936774> | Status : Offline ")
+        while bot.status ~= 1 do
+            bot:connect()
+            sleep(10000)
+        end
+        GonWebhook("<@" .. YourDiscordid .. ">".."\n<:growbot:992058196439072770> | Bot Name : "..bot.name.."\n<:mega:984686541383290940> | Information : Bot Is Back Online\n<a:online:1007062631787544666> | Status : Online\n<a:World:997157064008810620>")
+        join(list,FarmWorldID)
+    end
+    if world.name ~= list then
+        join(list,FarmWorldID)
+    end
+end
+
+isOwner = true
+
+if isOwner == true then
+
+for i, list in ipairs(FarmWorlds) do
+    list = string.upper(list)
+	Reconnect(list)
+    join(list,FarmWorldID)
+    agaclar = scanTree(BlockID+1).Ready
+    while agaclar > 1 do
+        if inventory:getItemCount(BlockID) ~= 200 then
+            Reconnect(list)
+            harvest(list)
+        end
+        Dropf(list)
+        Reconnect(list)
+        join(list,FarmWorldID)
+        agaclar = scanTree(BlockID+1).Ready
+    end
+end
+
+GonWebhook("<:growbot:992058196439072770> Bot Name : "..bot.name.." All World Done Bot Leave")
+sleep(1000)
+bot:leaveWorld()
+
+end
